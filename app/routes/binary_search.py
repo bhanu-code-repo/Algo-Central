@@ -18,6 +18,6 @@ def handle_binary_search_recursive():
         nums = request.get_json()['nums']
         target = request.get_json()['target']
         result = binary_search_recursive(nums, 0, len(nums) - 1, target)
-        return jsonify({'result': result})
+        return jsonify({'result': {'index': result}})
     except Exception as e:
         current_app.logger.error(e)
