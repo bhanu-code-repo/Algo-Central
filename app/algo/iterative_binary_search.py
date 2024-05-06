@@ -2,6 +2,9 @@
 
 def binary_search_iterative(nums: list[int], target: int) -> int:
     
+    # initialize result to -1 to indicate target not found
+    result = -1
+
     # check if the list is sorted and sort it if it's not
     nums_sorted = sorted(nums) if nums != sorted(nums) else nums
     
@@ -17,7 +20,8 @@ def binary_search_iterative(nums: list[int], target: int) -> int:
         
         # target is found
         if target == nums_sorted[mid]:
-            return mid
+            result = mid
+            right = mid - 1
         
         # discard all elements in the right search space,
         # including the middle element
@@ -30,4 +34,4 @@ def binary_search_iterative(nums: list[int], target: int) -> int:
             left = mid + 1
     
     # `target` doesn't exist in the list
-    return -1
+    return result
