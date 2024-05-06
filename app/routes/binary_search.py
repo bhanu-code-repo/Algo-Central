@@ -1,6 +1,7 @@
 from flask import request, jsonify, current_app
 from . import binary_search_bp
-from app.utils.binary_search_utils import binary_search_iterative, binary_search_recursive
+from app.algo.iterative_binary_search import binary_search_iterative
+from app.algo.recursive_binary_search import binary_search_recursive
 
 @binary_search_bp.route('/api/v1/binary-search/iterative', methods=['POST'])
 def handle_binary_search_iterative():
